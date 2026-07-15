@@ -57,7 +57,7 @@ export interface SearchResponse {
     providedIn: 'root'
 })
 export class ResumeService {
-    private apiUrl = "https://resume-parser-backend-tnp9.onrender.com/";
+    private apiUrl = "https://resume-parser-backend-tnp9.onrender.com";
 
     constructor(private http: HttpClient) { }
 
@@ -73,7 +73,7 @@ export class ResumeService {
     }
 
     getAllResumes(skip: number = 0, limit: number = 10): Observable<any> {
-        return this.http.get(`${this.apiUrl}/resumes?skip=${skip}&limit=${limit}`);
+        return this.http.get(`${this.apiUrl}/api/resumes?skip=${skip}&limit=${limit}`);
     }
 
     getResumeById(resumeId: string): Observable<any> {
