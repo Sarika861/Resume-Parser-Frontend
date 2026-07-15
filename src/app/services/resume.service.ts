@@ -65,11 +65,11 @@ export class ResumeService {
         const formData = new FormData();
         formData.append('file', file);
 
-        return this.http.post<ResumeResponse>(`${this.apiUrl}/upload`, formData);
+        return this.http.post<ResumeResponse>(`${this.apiUrl}/api/upload`, formData);
     }
 
     searchResumes(request: SearchRequest): Observable<SearchResponse> {
-        return this.http.post<SearchResponse>(`${this.apiUrl}/search`, request);
+        return this.http.post<SearchResponse>(`${this.apiUrl}/api/search`, request);
     }
 
     getAllResumes(skip: number = 0, limit: number = 10): Observable<any> {
@@ -77,14 +77,14 @@ export class ResumeService {
     }
 
     getResumeById(resumeId: string): Observable<any> {
-        return this.http.get(`${this.apiUrl}/resume/${resumeId}`);
+        return this.http.get(`${this.apiUrl}/api/resume/${resumeId}`);
     }
 
     deleteResume(resumeId: string): Observable<any> {
-        return this.http.delete(`${this.apiUrl}/resume/${resumeId}`);
+        return this.http.delete(`${this.apiUrl}/api/resume/${resumeId}`);
     }
 
     getInterviewQuestions(resumeId: string): Observable<any> {
-        return this.http.get(`${this.apiUrl}/resume/${resumeId}/questions`);
+        return this.http.get(`${this.apiUrl}/api/resume/${resumeId}/questions`);
     }
 }
